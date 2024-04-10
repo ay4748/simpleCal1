@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">simpleCal1</string>
+    <string name="title_activity_credits">credits</string>
 </resources>
