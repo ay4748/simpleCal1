@@ -22,39 +22,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void plusDodge(View view) {
-        if (!currentNum.getText().toString().isEmpty()) {
+        if (canAct(currentNum.getText().toString())) {
             num1 = Float.parseFloat(currentNum.getText().toString());
-            currentNum.setText("");
+            currentNum.setHint("");
             plus = true;
         }
     }
 
     public void minusdodge(View view) {
-        if (!currentNum.getText().toString().isEmpty()) {
+        if (canAct(currentNum.getText().toString())) {
             num1 = Float.parseFloat(currentNum.getText().toString());
-            currentNum.setText("");
+            currentNum.setHint("");
             minus = true;
         }
     }
 
     public void muldodge(View view) {
-        if (!currentNum.getText().toString().isEmpty()) {
+        if (canAct(currentNum.getText().toString())) {
             num1 = Float.parseFloat(currentNum.getText().toString());
-            currentNum.setText("");
+            currentNum.setHint("");
             mul = true;
         }
     }
 
     public void divdodge(View view) {
-        if (!currentNum.getText().toString().isEmpty()) {
+        if (canAct(currentNum.getText().toString())) {
             num1 = Float.parseFloat(currentNum.getText().toString());
-            currentNum.setText("");
+            currentNum.setHint("");
             div = true;
         }
     }
 
     public void eqdodge(View view) {
-        if (!currentNum.getText().toString().isEmpty()) {
+        if (canAct(currentNum.getText().toString())) {
             num2 = Float.parseFloat(currentNum.getText().toString());
 
             if (plus) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num2 != 0) {
                     currentNum.setHint(String.valueOf(num1 / num2));
                 } else {
-                    Toast.makeText(this,"invalid input",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Error: Division by zero", Toast.LENGTH_SHORT).show();
                 }
                 div = false;
             }
@@ -85,5 +85,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetdodge(View view) {
         currentNum.setText("");
+        currentNum.setHint("Enter number");
+    }
+
+    public boolean canAct(String st) {
+        if (st.isEmpty() || st.equals("-") || st.equals(".") || st.equals("+") || st.equals("-.") || st.equals("+.")) {
+            Toast.makeText(this, "Invalid input", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            return true;
+        }
     }
 }
