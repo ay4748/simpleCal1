@@ -22,7 +22,8 @@ public class creditsForAlbert extends AppCompatActivity {
         textView.setText("Last Result: " + lastResult);
     }
 
-    public void backToCalculator(View view) {
+
+    public void backtododge(View view) {
         finish();
     }
 }
